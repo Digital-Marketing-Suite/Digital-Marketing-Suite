@@ -1644,11 +1644,53 @@
                     </div>
                 </div>
 
-                <div class="savings">You Save $118 Today!</div>
+                <!-- Replace the existing savings and final price divs with this -->
+<div class="savings">You Save $118 Today!</div>
+<a href="https://gumroad.com/checkout?_gl=1*1bbmw64*_ga*MjA2MTQ4MjA2MC4xNzQxMDUxODQ3*_ga_6LJN6D94N6*MTc0MTEwMDgwNi4yLjEuMTc0MTEwMTAwOC4wLjAuMA.." target="_blank" class="final-price-link" style="text-decoration: none; display: block;">
+    <div class="final-price animated">
+        Pay Only $149 Today
+    </div>
+</a>
 
-                <div class="final-price">
-                    Pay Only $149 Today
-                </div>
+<!-- Add this CSS to your existing style section -->
+<style>
+    /* Animation for the final price */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    .final-price.animated {
+        animation: pulse 2s infinite ease-in-out;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .final-price.animated:hover {
+        background-color: #1e8449; /* Slightly darker green on hover */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        transform: translateY(-3px);
+    }
+    
+    .final-price.animated::after {
+        content: "→";
+        position: absolute;
+        right: 20px;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .final-price.animated:hover::after {
+        opacity: 1;
+        right: 15px;
+    }
+    
+    .final-price-link:focus {
+        outline: none;
+    }
+</style>
 
                 <div class="guarantee">
                     <span class="guarantee-icon"><i class="fas fa-shield-alt"></i></span>
